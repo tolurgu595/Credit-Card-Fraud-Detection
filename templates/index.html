@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head> 
+    <style>
+       
+    </style>
+    <title>Credit Card Fraud Detection</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <h1>Credit Card Fraud Detection</h1>
+    <form action="{{ url_for('predict') }}" method="post">
+        <label for="transaction_amount">Transaction Amount:</label>
+        <input type="number" step="0.01" id="transaction_amount" name="transaction_amount" required>
+
+        <label for="declines_per_day">Total Number of Declines/Day:</label>
+        <input type="number" id="declines_per_day" name="declines_per_day" required>
+
+        <label for="is_foreign_transaction">Is Foreign Transaction:</label>
+        <select id="is_foreign_transaction" name="is_foreign_transaction" required>
+            <option value="0">No</option>
+            <option value="1">Yes</option>
+        </select>
+
+        <label for="is_high_risk_country">Is High-Risk Country:</label>
+        <select id="is_high_risk_country" name="is_high_risk_country" required>
+            <option value="0">No</option>
+            <option value="1">Yes</option>
+        </select>
+
+        <label for="daily_chargeback_avg_amt">Daily Chargeback Average Amount:</label>
+        <input type="number" step="0.01" id="daily_chargeback_avg_amt" name="daily_chargeback_avg_amt" required>
+
+        <label for="six_month_avg_chbk_amt">6-Month Average Chargeback Amount:</label>
+        <input type="number" step="0.01" id="six_month_avg_chbk_amt" name="six_month_avg_chbk_amt" required>
+
+        <label for="six_month_chbk_freq">6-Month Chargeback Frequency:</label>
+        <input type="number" id="six_month_chbk_freq" name="six_month_chbk_freq" required>
+
+        <label for="total_transaction_amount">Total Transaction Amount:</label>
+        <input type="number" step="0.01" id="total_transaction_amount" name="total_transaction_amount" required>
+
+        <label for="declines_level">Declines Level:</label>
+        <select id="declines_level" name="declines_level" required>
+            <option value="0">Low</option>
+            <option value="1">Medium</option>
+            <option value="2">High</option>
+        </select>
+
+        <input type="submit" value="Detect Fraud">
+    </form>
+</body>
+</html>
